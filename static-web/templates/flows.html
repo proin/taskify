@@ -1,0 +1,90 @@
+<div class="container" style="margin-top: 12px;">
+    <div class="row">
+        <div class="col s3">
+            <div class="collection">
+                <a ng-click="flow.create()" class="waves-effect waves-light btn" style="width: 100%;"><i class="mdi-image-add-to-photos right"></i>Add Flow</a>
+                <a><input ng-model="flow.createname" class="validate" type="text" placeholder="flow name" style="margin: 0px; padding: 0px 16px 0px 16px; height: 42px; display: inline-block"/></a>
+                <a ng-repeat="flow in list" class="collection-item {{active[flow]}}" href="/#/flows/{{flow}}">{{flow}}</a>
+            </div>
+        </div>
+        <div class="col s9" style="display: {{dash.deleteVisible}};">
+            <h4 style="display: inline-block;">{{dash.name}}</h4>
+            <a ng-click="flow.delete(dash.name)" class="waves-effect waves-light btn right red"><i class="mdi-file-cloud right"></i>delete</a>
+            <hr/>
+
+            <div class="row">
+                <div class="col s8">
+                    <div id="network" style="width: 100%; height: 400px; border: 1px solid #ccc;"></div>
+                    <div style="text-align: right; margin-top: 8px;">
+                        <input type="checkbox" class="filled-in" id="flows-graph-success" checked="checked" ng-model="success" ng-click="showGraph()"/>
+                        <label for="flows-graph-success">Success Arrows</label>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="checkbox" class="filled-in" id="flows-graph-error" checked="checked" ng-model="error" ng-click="showGraph()"/>
+                        <label for="flows-graph-error">Error Arrows</label>
+                    </div>
+                    <hr/>
+                    <pre>{{dash.pretty}}</pre>
+                </div>
+                <div class="col s4">
+                    <div class="row">
+
+                        <div class="input-field col s12">
+                            <input id="module-name" placeholder="Module Name" type="text" class="validate" ng-value="module.name" ng-model="module.name">
+                        </div>
+
+                        <div class="col s12">
+                            <h6 class="teal lighten-3" style="padding: 8px; margin-top: 12px;">App</h6>
+                        </div>
+
+                        <div class="col s12">
+                            <select class="browser-default" id="module-app-select">
+                                <option value="{{module.data.app}}">{{module.data.app}}</option>
+                                <option ng-repeat="app in apps" value="{{app.name}}">{{app.name}}</option>
+                            </select>
+                        </div>
+
+                        <div class="col s12">
+                            <h6 class="teal lighten-3" style="padding: 8px; margin-top: 12px;">Next Flow</h6>
+                        </div>
+
+                        <div class="col s12">
+                            <select class="browser-default" id="module-next">
+                                <option value="" selected></option>
+                                <option ng-repeat="module in nextModule" ng-value="module.name" ng-selected="module.active">{{module.name}}</option>
+                            </select>
+                        </div>
+
+                        <div class="col s12">
+                            <h6 class="teal lighten-3" style="padding: 8px; margin-top: 12px;">Outputs to Inputs</h6>
+                        </div>
+
+                        <div class="col s12">
+                            <a><input ng-model="module.addinputvalue" class="col s9" type="text" placeholder="output name" style="margin: 0px; padding: 0px 4px 0px 4px; height: 36px; display: inline-block"/></a>
+                            <a ng-click="module.addinput()" class="waves-effect waves-light btn col s3">ctrl</a>
+                        </div>
+
+                        <div class="col s12" ng-repeat="data in module.inputs" style="margin-top: 12px;">
+                            <label class="col s3">{{data.key}}</label>
+                            <textarea class="col s9 materialize-textarea" ng-model="module.data.next.input[data.key]">{{data.value}}</textarea>
+                        </div>
+
+                        <div class="col s12">
+                            <h6 class="teal lighten-3" style="padding: 8px; margin-top: 12px;">In Error</h6>
+                        </div>
+
+                        <div class="col s12">
+                            <select class="browser-default" id="module-error">
+                                <option value="" selected></option>
+                                <option ng-repeat="module in errorModule" ng-value="module.name" ng-selected="module.active">{{module.name}}</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col s12">
+                        <a ng-click="module.save()" class="waves-effect waves-light btn col s6">Save</a>
+                        <a ng-click="module.delete()" class="waves-effect waves-light btn red col s6">Delete</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

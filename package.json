@@ -1,0 +1,29 @@
+{
+    "name": "taskify",
+    "description": "Task Manager",
+    "author": {
+        "name": "Yeonghun, Chae",
+        "email": "proin@proinlab.com"
+    },
+    "version": "0.1.0",
+    "private": true,
+    "dependencies": {
+        "mime": "1.2.11",
+        "redis": "0.12.1",
+        "hiredis": "0.4.0",
+        "jsdom": "3.1.2",
+        "cli-color": "1.0.0",
+        "uuid": "2.0.1",
+        "express": "4.12.4",
+        "socket.io": "1.3.5",
+        "socket.io-client": "1.3.5"
+    },
+    "files": [
+        "LICENSE",
+        "README.md",
+        "index.js"
+    ],
+    "scripts": {
+        "start": "node test.js"
+    }
+}

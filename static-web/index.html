@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html ng-app="actionflow">
+<head>
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+
+    <title>Taskify</title>
+
+    <!-- css libs -->
+    <link type="text/css" rel="stylesheet" href="libs/vis/vis.css" media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" href="libs/materialize/css/materialize.min.css" media="screen,projection"/>
+
+    <!-- js libs -->
+    <script type="text/javascript" src="libs/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="libs/angular/angular.js"></script>
+    <script type="text/javascript" src="libs/angular/angular-route.js"></script>
+    <script type="text/javascript" src="libs/vis/vis.js"></script>
+    <script src="libs/socketio/socket.io.js"></script>
+    <script type="text/javascript" src="libs/materialize/js/materialize.min.js"></script>
+</head>
+<body>
+
+<!-- angular -->
+<script type="text/javascript" src="angular/app.js"></script>
+<script type="text/javascript" src="angular/controller.js"></script>
+<script type="text/javascript" src="angular/ctrl/main.js"></script>
+<script type="text/javascript" src="angular/ctrl/apps.js"></script>
+<script type="text/javascript" src="angular/ctrl/flows.js"></script>
+<script type="text/javascript" src="angular/ctrl/instances.js"></script>
+
+<div class="navbar-fixed">
+    <nav class="teal lighten-2">
+        <div class="nav-wrapper container">
+            <a href="/#/main" class="brand-logo">Taskify</a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a href="/#/apps">Apps</a></li>
+                <li><a href="/#/flows">Flows</a></li>
+                <li><a href="/#/instances">Instances</a></li>
+            </ul>
+        </div>
+    </nav>
+</div>
+
+<div ng-view></div>
+
+</body>
+</html>

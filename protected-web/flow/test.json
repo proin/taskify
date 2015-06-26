@@ -1,0 +1,26 @@
+{
+    "request": {
+        "app": "crawler/http-request",
+        "next": {
+            "id": "parse",
+            "input": {
+                "$html": "output.$html"
+            }
+        },
+        "error": {
+            "id": "request"
+        }
+    },
+    "url-selector": {
+        "app": "crawler/url-selector"
+    },
+    "parse": {
+        "app": "crawler/jquery",
+        "next": {
+            "id": "url-selector",
+            "input": {
+                "$urls": "output"
+            }
+        }
+    }
+}
